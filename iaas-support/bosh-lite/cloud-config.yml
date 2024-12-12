@@ -32,8 +32,9 @@ networks:
     range: 10.244.0.0/20
     reserved:
     - 10.244.0.1
+    - 10.244.0.2
     static:
-    - 10.244.0.2 - 10.244.0.127
+    - 10.244.0.3 - 10.244.0.127
     - 10.244.1.0 - 10.244.1.127
     - 10.244.2.0 - 10.244.2.127
     - 10.244.3.0 - 10.244.3.127
@@ -47,13 +48,13 @@ vm_extensions:
 - name: ssh-proxy-and-router-lb
   cloud_properties:
     ports:
-    - host: 80
-    - host: 443
-    - host: 2222
+    - 80/tcp
+    - 443/tcp
+    - 2222/tcp
 - name: cf-tcp-router-network-properties
   cloud_properties:
     ports:
-    - host: 1024-1123
+    - 1024/tcp
 vm_types:
 - name: minimal
 - name: small

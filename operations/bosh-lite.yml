@@ -132,3 +132,7 @@
 - type: replace
   path: /instance_groups/name=diego-api/jobs/name=locket/properties?/set_kernel_parameters
   value: false
+
+- type: replace
+  path: /instance_groups/name=diego-cell/jobs/name=garden/properties/garden/apparmor_profile?
+  value: "" # overwrites garden-default which is the default
